@@ -1,0 +1,10 @@
+                view.loadUrl("javascript:window.java_obj.getSource(document.getElementsByName('txbBrnchNo')[0].value + ',' + " +
+                        "document.getElementsByName('rdoTransType')[0].value + ',' + " +
+                        "document.getElementsByName('rdoTransType')[1].value + ',' + " +
+                        "document.getElementsByName('txbAccNo')[0].value + ',' + " +
+                        "document.getElementsByName('txbNm')[0].value + ',' + " +
+                        "document.getElementsByName('lstBdayYear')[0].value + ',' + " +
+                        "document.getElementsByName('lstBdayMnth')[0].value + ',' + " +
+                        "document.getElementsByName('lstBdayDay')[0].value + ',' + " +
+                        "document.getElementsByName('PASSWD_CshCrdPwd')[0].value + ',' + " +
+                        "document.getElementsByName('txbPbLstBal')[0].value)");

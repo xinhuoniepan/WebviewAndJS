@@ -1,0 +1,57 @@
+package com.example.wanghaiyan.mhbk;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class ShowActivity extends AppCompatActivity {
+
+    private Mizuho mizuho = new Mizuho();
+    private TextView txbBrnchNo,rdoTransType,txbAccNo,txbNm,lstBdayYMD,password,txbPbLstBal,code,url;
+    private String month,day,lastYMD;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_show);
+        init();
+    }
+
+    private void init(){
+        mizuho = (Mizuho) getIntent().getSerializableExtra("mizuho");
+        Toast.makeText(this,mizuho.getCode(),Toast.LENGTH_SHORT).show();
+        txbBrnchNo = findViewById(R.id.txbBrnchNo);
+        rdoTransType = findViewById(R.id.rdoTransType);
+        txbAccNo = findViewById(R.id.txbAccNo);
+        txbNm = findViewById(R.id.txbNm);
+        lstBdayYMD = findViewById(R.id.lstBdayYMD);
+        password = findViewById(R.id.password);
+        txbPbLstBal = findViewById(R.id.txbPbLstBal);
+        code = findViewById(R.id.code);
+        url = findViewById(R.id.url);
+        txbBrnchNo.setText(mizuho.getTxbBrnchNo());
+        rdoTransType.setText(mizuho.getRdoTransType());
+        txbAccNo.setText(mizuho.getTxbAccNo());
+        txbNm.setText(mizuho.getTxbNm());
+        password.setText(mizuho.getPASSWD_CshCrdPwd());
+        txbPbLstBal.setText(mizuho.getTxbPbLstBal());
+        code.setText(mizuho.getCode());
+        url.setText(mizuho.getUrl());
+        lastYMD = mizuho.getLstBdayYear();
+        month = mizuho.getLstBdayMnth();
+        day = mizuho.getLstBdayDay();
+        if(Integer.valueOf(month)<10){
+            lastYMD = lastYMD + "0" + month;
+        } else {
+            lastYMD = lastYMD + month;
+        }
+        if(Integer.valueOf(day)<10){
+            lastYMD = lastYMD + "0"+day;
+        } else {
+            lastYMD = lastYMD + day;
+        }
+        lstBdayYMD.setText(lastYMD);
+    }
+}
